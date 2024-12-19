@@ -1,0 +1,59 @@
+<div
+  class="flex flex-col rounded-lg border-2 shadow-xl w-full items-center bg-white"
+>
+  <div class="flex justify-between w-full items-center">
+    <div class="flex items-center px-6 pt-4 self-start">
+      <img [src]="'assets/imgs/' + profilePic" alt="" class="bg-bg h-12 w-12 rounded-full mr-4" />
+      <h1 class="text-xl font-bold">{{ username }}</h1>
+    </div>
+    <p class="mr-8 opacity-70">{{addedAt | date:'medium' }} </p>
+  </div>
+  <div class="self-start px-6 mt-4">
+    <p>{{description}}</p>
+  </div>
+  <div class="border border-black rounded-md w-11/12 flex justify-center p-2 my-4 h-96 contain">
+    <img
+      src=""
+      alt=""
+      class="bg-white w-full rounded-md object-contain"
+      [src]="'assets/imgs/' + imageURL"
+    />
+  </div>
+  <div class="w-full bg-yellow text-black rounded-lg">
+    <div class="flex justify-between px-8 py-4 items-center w-full">
+      <!-- <div>
+        <i
+          [ngClass]="
+            toggleLike()
+              ? 'fa-regular fa-heart fa-2xl'
+              : 'fa-solid fa-heart fa-2xl'
+          "
+          (click)="toggleLike()"
+          class="mr-4"
+          style="color: #000000"
+        ></i>
+        <i class="fa-regular fa-comment fa-2xl" style="color: #000000"></i>
+      </div> -->
+      
+    </div>
+    <div class="border-t border-black flex flex-col p-4">
+    <div class="flex text-xl my-2" *ngFor="let comment of comments ">
+        <h1 class="font-bold mr-4">{{ user.username }}</h1>
+        <p>{{ comment.content }}</p>
+    </div>
+</div>
+    <div class="w-full border-t border-black"></div>
+    <div class="flex justify-center">
+      <div class="flex justify-between items-center w-11/12">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="flex justify-between w-full">
+          <input
+            class="border-b-2 border-black text-bg bg-transparent w-11/12 text-xl my-4 placeholder:text-black"
+            formControlName="content"
+            placeholder="Add a comment..."
+          />
+          <button class="fa-solid fa-paper-plane fa-2xl" type="submit"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

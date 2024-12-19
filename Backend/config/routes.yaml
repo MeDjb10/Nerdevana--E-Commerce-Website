@@ -1,0 +1,10 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+users:
+    path: /users
+    controller: App\Controller\UserController::index
+    methods: [GET]

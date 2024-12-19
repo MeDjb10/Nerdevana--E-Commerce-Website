@@ -1,0 +1,15 @@
+{% extends "@EasyAdmin/page/content.html.twig"%}
+{% block main %}
+    {{ parent() }} {# This includes the content of the 'main' block from the parent template #}
+
+    <a href="http://localhost:4200/home" class="btn btn-outline-light" id="home-button">Home</a>
+      <style>
+        #home-button {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
